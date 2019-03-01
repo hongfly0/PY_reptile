@@ -30,6 +30,8 @@ def  mmRankSum():
 
     #首先获取页码数,然后用循环的方式挨个解析每一个页面
     pages = htmlpath.xpath('//div[@class="pagesYY"]/div/a/@href')
+    pages.insert(0,'1.html')
+    pages = sorted(list(set(pages)))
 
     for i in range( len(pages) -2 ):
         pagesitem="http://www.zngirls.com/rank/sum/"+ pages[i]
