@@ -61,7 +61,7 @@ def mmRankitem(url,page_num):
         #检测是否已经拉取完毕
         fb_check = open("/images/check.txt", mode='w')
 
-        
+
 
 
 
