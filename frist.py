@@ -7,7 +7,6 @@ from os import system
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-
 import os
 """
 第一步: 从 http://www.zngirls.com/rank/sum/ 开始抓取MM点击头像的链接(注意是分页的)
@@ -15,7 +14,6 @@ import os
 #第三部 http://www.zngirls.com/g/19671/1.html 在写真图片的具体页面抓取图片(注意是分页的)
 """
 pciturelist=[]
-
 
 header = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
@@ -38,7 +36,7 @@ def  mmRankSum():
     pages.insert(0,' ')
     pages = sorted(list(set(pages)))
 
-    for i in range(len(pages) -2 ):
+    for i in range(len(pages)):
         pagesitem="https://www.zngirls.com/rank/"+type+"/"+ pages[i]
         mmRankitem(pagesitem,i)
 
@@ -59,41 +57,70 @@ def mmRankitem(url,page_num):
         girl_no = pages_girl[i].replace('/girl/','').replace('/','')
 
         #检测是否已经拉取完毕
-        fb_check = open("/images/check.txt", mode='w')
+        f = open("check.txt", mode='r')
+        list_finish_girl = f.readlines()
+        f.close()
 
+        is_write = 1
 
+        for girl_item in range(len(list_finish_girl)):
+            finish_girl_no = list_finish_girl[girl_item].replace('\n','')
 
+            if girl_no == finish_girl_no :
+                is_write = 0
+                break
+            else :
+                is_write = 1
+                continue
 
+        #完成之后 记录完成的girl number
+        if is_write == 1 :
 
-        setInfo(girl_url,str(page_num) +  str(i) +girl_no)
+            setInfo(girl_url, str(page_num) + str(i) + girl_no)
+            print("girl地址:http://www.zngirls.com/" + pages_girl[i] )
+            getAlbums("http://www.zngirls.com/" + pages_girl[i] , str(page_num) + str(i) + girl_no)
 
-        print ("相册地址:http://www.zngirls.com/" + pages_girl[i]+"album/")
-        getAlbums("http://www.zngirls.com/" + pages_girl[i]+"/album/",str(page_num) +  str(i) +girl_no)
-       #print "http://www.zngirls.com/" + pages[i]
-
+            fw = open("check.txt", mode='a')
+            fw.write(girl_no+'\n')
+            print("完成 girl number："+girl_no)
+            fw.close()
 
 """
 参数 url : 每一个MM专辑的页面地址
 通过穿过来的参数，获取每一个MM写真专辑图片集合的地址
 """
 def getAlbums(girlUrl,girl_no):
-    print(girlUrl)
-    req = urllib.request.Request(girlUrl, headers=header)
+    girlUrl_album = girlUrl +  'album/'
+
+    req = urllib.request.Request(girlUrl_album, headers=header)
     html = urllib.request.urlopen(req)
     htmldata = html.read()
     htmlpath = etree.HTML(htmldata)
 
     pages_albums = htmlpath.xpath('//div[@class="igalleryli_div"]/a/@href')
 
-    for i in range(len(pages_albums)):
-        getPagePicturess("http://www.zngirls.com/" + pages_albums[i],girl_no)
+    #判断是否存在相册
+    if len(pages_albums):
+        for i in range(len(pages_albums)):
+            getPagePicturess("http://www.zngirls.com/" + pages_albums[i],girl_no)
+    else:
+        req_girl = urllib.request.Request(girlUrl, headers=header)
+        html_girl = urllib.request.urlopen(req_girl)
+        htmldata_girl = html_girl.read()
+        htmlpath_girl = etree.HTML(htmldata_girl)
+
+        pages_girl = htmlpath_girl.xpath('//div[@class="igalleryli_div"]/a/@href')
+
+        for j in range(len(pages_girl)) :
+            getPagePicturess("http://www.zngirls.com/" + pages_girl[j],girl_no)
+
 
 
 def setInfo(grilUrl,gril_no) :
     req = urllib.request.Request(grilUrl, headers=header)
     gril_html = urllib.request.urlopen(req)
     gril_htmldata = gril_html.read()
-    gril_htmlpath = etree.HTML(gril_htmldata)
+    gril_htmlpath = etree.HTML(gril_htmldata.decode('utf-8'))
 
     path = mkdir(gril_no)
 
@@ -101,7 +128,7 @@ def setInfo(grilUrl,gril_no) :
 
     detial  = gril_htmlpath.xpath('//div[@class="infocontent"]/p/text()')
 
-    fp = open(path+'/' + gril_no + ".txt", mode='w')
+    fp = open(path+'/' + gril_no + ".txt", mode='w',encoding='utf-8')
 
     for i in range(len(rows)):
         check_mod = i % 2
@@ -116,7 +143,7 @@ def setInfo(grilUrl,gril_no) :
     fp.write('\n')
 
     for j in range(len(detial)):
-        fp.write(detial[j])
+        fp.write(detial[j].replace('',''))
 
     fp.close()
 
@@ -131,7 +158,7 @@ def getPagePicturess(albumsurl,girl_no):
     htmldata = html.read()
     htmlpath = etree.HTML(htmldata)
     pages_pic = htmlpath.xpath('//div[@id="pages"]/a/@href')
-    for i in range(len(pages_pic)-2):
+    for i in range(len(pages_pic)):
         savePictures("http://www.zngirls.com" + pages_pic[i],girl_no)
 
 """
@@ -160,6 +187,7 @@ def mkdir(title):
 通过穿过来的参数，直接解析页面，获取写真图片的地址，然后下载保存到本地。
 """
 def savePictures(itemPagesurl,girl_no):
+
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
         , "Connection": "keep-alive"
