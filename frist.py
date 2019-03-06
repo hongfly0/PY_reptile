@@ -226,9 +226,16 @@ def savePictures(itemPagesurl,girl_no):
 
             respHtml = urlhtml.read()
 
-            binfile = open(pic_path+'/%s.jpg' % (names[i]) , "wb")
-            binfile.write(respHtml);
-            binfile.close();
+            file = pic_path+'/%s.jpg' % (names[i])
+
+            if os.access(file, os.F_OK):
+                print(names[i]+'.jpg 已存在')
+                continue
+            else :
+                binfile = open(file, "wb")
+                binfile.write(respHtml);
+                binfile.close();
+
         except Exception :
             pass
 
