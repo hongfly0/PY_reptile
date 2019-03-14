@@ -656,18 +656,43 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/reptile$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1551347598984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/PY_reptile$frist.coverage" NAME="frist Coverage Results" MODIFIED="1551842828822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PY_reptile$meizitu.coverage" NAME="meizitu Coverage Results" MODIFIED="1552556474636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PY_reptile$frist.coverage" NAME="frist Coverage Results" MODIFIED="1552472288785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reptile$frist.coverage" NAME="frist Coverage Results" MODIFIED="1551432314263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="411">
+              <caret line="181" column="18" selection-start-line="163" selection-end-line="181" selection-end-column="18" />
               <folding>
                 <element signature="e#43#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/getInfoFromMeizi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#44#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-14">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+              <folding>
+                <element signature="e#179#194#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -688,9 +713,14 @@
       <find>sum</find>
       <find>girl</find>
       <find>return</find>
-      <find>return</find>
       <find>pages_res</find>
       <find>open</find>
+      <find>header</find>
+      <find>header(</find>
+      <find>mkdir</find>
+      <find>pages</find>
+      <find>save_path</find>
+      <find>saveImage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -700,6 +730,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/frist.py" />
+        <option value="$PROJECT_DIR$/getInfoFromZnzhi.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/getInfoFromMeizi.py" />
       </list>
     </option>
   </component>
@@ -710,10 +743,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="164" />
+    <option name="y" value="-331" />
+    <option name="width" value="3306" />
+    <option name="height" value="1206" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -721,6 +754,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -732,12 +766,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/getInfoFromZnzhi.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -755,7 +788,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="frist" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="meizitu" type="PythonConfigurationType" factoryName="Python">
       <module name="reptile" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -768,7 +801,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frist.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\think\PycharmProjects\PY_reptile\getInfoFromMeizi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -795,11 +828,14 @@
       <workItem from="1551702999789" duration="9545000" />
       <workItem from="1551755773436" duration="11866000" />
       <workItem from="1551833676605" duration="4952000" />
+      <workItem from="1552471675165" duration="225000" />
+      <workItem from="1552471952159" duration="521000" />
+      <workItem from="1552546069657" duration="8803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40609000" />
+    <option name="totallyTimeSpent" value="51300000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,15 +847,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-426" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.65081966" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.3362256" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.5315024" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -847,13 +883,6 @@
     <entry file="file://C:/python37/Lib/urllib/request.py" />
     <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-2046809416/lxml/etree/__init__.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/254713711/builtins.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-2046809416/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="378" column="55" selection-start-line="378" selection-start-column="55" selection-end-line="378" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/python37/Lib/typing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -861,12 +890,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-2046809416/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="4788" column="8" selection-start-line="4788" selection-start-column="8" selection-end-line="4788" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="e#179#194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="411">
+          <caret line="181" column="18" selection-start-line="163" selection-end-line="181" selection-end-column="18" />
           <folding>
             <element signature="e#43#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getInfoFromMeizi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#44#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
