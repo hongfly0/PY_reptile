@@ -19,18 +19,15 @@ header = {
             , "Connection": "keep-alive"
          }
 
-star_name = 'pengyuyan'
-
 base_url = 'https://www.aitaotu.com'
 
 url = ''
 
-global save_path
-save_path = os.path.split(os.path.realpath(__file__))[0] + '/aitaotu/'+star_name+'/'
-
 global download_path
 download_path = ''
 
+global i
+i = 2
 
 """
 获取目标分页
@@ -75,7 +72,7 @@ def getInfos(info_url) :
     title = info_path.xpath('//div[@id="photos"]/h1/text()')[0]
 
     global download_path
-    download_path = mkdir(title);
+    download_path = mkdir(title)
 
     now_image_url = info_path.xpath('//div[@id="big-pic"]/p/a/img/@src')[0]
     getImage(now_image_url, download_path, '1')
@@ -100,9 +97,12 @@ def getInfos(info_url) :
 获取多页写真
 """
 def getInfoImages(start_url,total_page) :
-    i = 2
+    global  i
     print(start_url)
     while i <= int(total_page) :
+        print(i)
+        i += 1
+        continue
         now_info_url = start_url.replace('.html','_'+str(i)+ '.html')
         info_path = getRequestResult(base_url + now_info_url)
         now_image_url = info_path.xpath('//div[@id="big-pic"]/p/a/img/@src')[0]
@@ -195,5 +195,12 @@ def mkdir(title):
 
 
 print('开始')
+
+global star_name
+star_name = input("请输入姓名:")
+
+global save_path
+save_path = os.path.split(os.path.realpath(__file__))[0] + '/aitaotu/'+star_name+'/'
+
 getPageList();
 print('结束')
