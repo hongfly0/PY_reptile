@@ -656,19 +656,20 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/reptile$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1551347598984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/PY_reptile$testSelenium.coverage" NAME="testSelenium Coverage Results" MODIFIED="1553243170705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PY_reptile$Star_photo.coverage" NAME="Star_photo Coverage Results" MODIFIED="1553162706305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PY_reptile$testSelenium.coverage" NAME="testSelenium Coverage Results" MODIFIED="1553567471904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PY_reptile$Star_photo.coverage" NAME="Star_photo Coverage Results" MODIFIED="1553247910716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PY_reptile$meizitu.coverage" NAME="meizitu Coverage Results" MODIFIED="1552556474636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PY_reptile$frist.coverage" NAME="frist Coverage Results" MODIFIED="1552472288785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/reptile$frist.coverage" NAME="frist Coverage Results" MODIFIED="1551432314263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PY_reptile$OpenSelenium.coverage" NAME="OpenSelenium Coverage Results" MODIFIED="1553595290002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Star_photo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="146" column="21" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="21" />
+            <state relative-caret-position="266">
+              <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
               <folding>
                 <element signature="e#43#56#0" expanded="true" />
               </folding>
@@ -676,13 +677,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSelenium.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="86" column="59" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="59" />
+            <state relative-caret-position="362">
+              <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
               <folding>
                 <element signature="e#29#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OpenSelenium.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="94" column="89" selection-start-line="94" selection-start-column="89" selection-end-line="94" selection-end-column="89" />
+              <folding>
+                <element signature="e#29#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -691,7 +704,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getInfoFromMeizi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-715">
+            <state relative-caret-position="752">
               <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="23" />
               <folding>
                 <element signature="e#44#57#0" expanded="true" />
@@ -726,7 +739,6 @@
       <find>randnum</find>
       <find>star_name</find>
       <find>mkdir</find>
-      <find>return</find>
       <find>tag</find>
       <find>总共</find>
       <find>KL4Bh</find>
@@ -734,8 +746,9 @@
       <find>print(</find>
       <find>WebDriverWait</find>
       <find>lxml</find>
-      <find>write</find>
       <find>time.sleep</find>
+      <find>write</find>
+      <find>find_element_by_class_name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -750,6 +763,7 @@
         <option value="$PROJECT_DIR$/frist.py" />
         <option value="$PROJECT_DIR$/Star_photo.py" />
         <option value="$PROJECT_DIR$/testSelenium.py" />
+        <option value="$PROJECT_DIR$/OpenSelenium.py" />
       </list>
     </option>
   </component>
@@ -759,11 +773,11 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1358" />
-    <option name="y" value="-426" />
-    <option name="width" value="1364" />
-    <option name="height" value="735" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1759" />
+    <option name="y" value="-171" />
+    <option name="width" value="1378" />
+    <option name="height" value="733" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -804,7 +818,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.testSelenium">
+  <component name="RunManager" selected="Python.OpenSelenium">
+    <configuration name="OpenSelenium" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="reptile" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OpenSelenium.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Star_photo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="reptile" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -873,6 +909,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.OpenSelenium" />
         <item itemvalue="Python.testSelenium" />
         <item itemvalue="Python.Star_photo" />
       </list>
@@ -900,12 +937,13 @@
       <workItem from="1552546069657" duration="10713000" />
       <workItem from="1552631285106" duration="1388000" />
       <workItem from="1552979188959" duration="3389000" />
-      <workItem from="1552990694951" duration="33076000" />
+      <workItem from="1552990694951" duration="36772000" />
+      <workItem from="1553511309127" duration="9237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91063000" />
+    <option name="totallyTimeSpent" value="103996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,12 +958,12 @@
     <frame x="1358" y="-426" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17750533" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.29392624" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.22342733" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.5315024" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -985,26 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getInfoFromMeizi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-715">
-          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="23" />
-          <folding>
-            <element signature="e#44#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Star_photo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="146" column="21" selection-start-line="146" selection-start-column="16" selection-end-line="146" selection-end-column="21" />
-          <folding>
-            <element signature="e#43#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/python37/Lib/html/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1022,12 +1040,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/getInfoFromMeizi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="23" />
+          <folding>
+            <element signature="e#44#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testSelenium.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="86" column="59" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="59" />
+        <state relative-caret-position="362">
+          <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
           <folding>
             <element signature="e#29#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Star_photo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+          <folding>
+            <element signature="e#43#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OpenSelenium.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="94" column="89" selection-start-line="94" selection-start-column="89" selection-end-line="94" selection-end-column="89" />
+          <folding>
+            <element signature="e#29#59#0" expanded="true" />
           </folding>
         </state>
       </provider>

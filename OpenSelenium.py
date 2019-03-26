@@ -17,36 +17,17 @@ import os
 global save_path
 save_path = 'instagram'
 
-tag = 'gakki_smile'
+#tag = input('请输入需要搜索的关键字:')
+
+tag = '彭于晏'
 
 # gakki_smile 新恒结衣
 # luoyiyi1007 张艺兴
-
-roll_times = int(input('请输入要滚动的次数:'))
-
-"""
-循环次数 ，翻动网页
-"""
-
-
-def rollPage(driver, times):
-    for i in range(times):
-        print('第' + str(i + 1) + '次 滚动')
-        js = "var q=document.documentElement.scrollTop=100000"
-        run_res = driver.execute_script(js)
-
-        randnum = random.randint(2, 6)
-
-        print('休息' + str(randnum) + '秒')
-
-        time.sleep(randnum)
 
 
 """
 创建文件夹
 """
-
-
 def mkdir(title):
     pathdir = os.path.split(os.path.realpath(__file__))[0] + '/instagram/' + title
 
@@ -67,8 +48,6 @@ def mkdir(title):
 """
 下载图片到本地
 """
-
-
 def getImage(now_image_src, download_dir, file_name):
     print('下载：' + now_image_src)
 
@@ -104,6 +83,47 @@ def getImage(now_image_src, download_dir, file_name):
         print(file + ' | success')
 
 
+def getInfo(driver,source_data) :
+
+    htmlXml = html.fromstring(source_data)
+
+    images_info = htmlXml.xpath('//div[@class="KL4Bh"]/img/@src')
+
+    time.sleep(2)
+
+    # 检测有没有下一页的按钮
+    check_next_image = driver.find_element_by_class_name(By.XPATH,'//button[@class="_6CZji"]')
+
+    print(check_next_image)
+
+    if len(images_info) == 0 :
+        #翻到下一个动态
+        print('翻到下一个动态')
+
+    time.sleep(2)
+
+
+
+
+    click_new_image = driver.find_element_by_class_name('_6CZji')
+    click_new_image.click()  # 模拟点击,可以模拟点击加载更多
+
+
+    # if click_new_image > 0 :
+    #     print('下载图片，下载完成后 翻到下一页')
+    # else :
+    #     #翻到下一个动态
+    #     print('翻到下一个动态')
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     save_path = mkdir(tag)
 
@@ -111,20 +131,22 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(executable_path="C:\Program Files (x86)\Google\Chrome\Application\chromedriver")
 
     # 2. 发送请求
-    driver.get('https://www.instagram.com/' + tag + '/')
+    driver.get('https://www.instagram.com/explore/tags/' + tag + '/')
 
     # 3. 等待10秒时间
     wait = WebDriverWait(driver, 10)
 
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'KL4Bh')))
 
-    # 使用js 拉取页面到最底部
-    rollPage(driver, roll_times)
+    class_click = driver.find_element_by_class_name('eLAPa')
+    print(class_click)
+    class_click.click()  # 模拟点击,可以模拟点击加载更多
+    data = driver.page_source
+
+    getInfo(driver,data)
 
     # 4. 获取页面
     print('正在获取页面信息....')
-    data = driver.page_source
-
     htmlfile = open('ins.html', 'w')
     htmlfile.write(str(data.encode('UTF-8')))
     htmlfile.close()
@@ -132,26 +154,6 @@ if __name__ == '__main__':
     htmlXml = html.fromstring(data)
 
 
-
-    images_infos = htmlXml.xpath('//div[@class="KL4Bh"]/img/@src')
-
-    print('总共获取到' + str(len(images_infos)) + '张照片')
-    print(images_infos)
-
-    i = 0
-
-    while i < len(images_infos):
-        print('开始下载图片：' + images_infos[i])
-
-        getImage(images_infos[i], save_path, str(i))
-        # 获取随机数 下载完成之后  随机休息 1-6秒 减少访问次数
-        randnum = random.randint(1, 6)
-
-        print('下载完成,休息' + str(randnum) + '(s)')
-
-        time.sleep(randnum)
-        i += 1
-
     print('抓取结束')
     # 关闭浏览器
-    driver.quit()
+    #driver.quit()

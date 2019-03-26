@@ -100,9 +100,6 @@ def getInfoImages(start_url,total_page) :
     global  i
     print(start_url)
     while i <= int(total_page) :
-        print(i)
-        i += 1
-        continue
         now_info_url = start_url.replace('.html','_'+str(i)+ '.html')
         info_path = getRequestResult(base_url + now_info_url)
         now_image_url = info_path.xpath('//div[@id="big-pic"]/p/a/img/@src')[0]
@@ -133,6 +130,8 @@ def getImage(now_image_src,download_dir,file_name) :
         , "Connection": "keep-alive"
         , "Referer": now_image_src
     }
+
+    file_name = str(time.strftime('%Y%m%d%H%I%S',time.localtime(time.time())))
 
     file = download_dir + '/' + file_name + '.jpg'
 
