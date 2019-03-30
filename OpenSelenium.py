@@ -11,23 +11,25 @@ import urllib.request
 import random
 import time
 from lxml import html
+import unittest
+from selenium.common.exceptions import NoSuchElementException
 
 import os
 
 global save_path
 save_path = 'instagram'
 
-#tag = input('请输入需要搜索的关键字:')
+global tag
 
-tag = '彭于晏'
+tag = 'yejunghwa'
 
-# gakki_smile 新恒结衣
-# luoyiyi1007 张艺兴
 
 
 """
 创建文件夹
 """
+
+
 def mkdir(title):
     pathdir = os.path.split(os.path.realpath(__file__))[0] + '/instagram/' + title
 
@@ -48,112 +50,195 @@ def mkdir(title):
 """
 下载图片到本地
 """
-def getImage(now_image_src, download_dir, file_name):
-    print('下载：' + now_image_src)
-
-    header = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 \
-        Safari/537.36"
-        , "Connection": "keep-alive"
-        , "Referer": "image / webp, image / *, * / *;q = 0.8"
-        , "Accept": "image/webp,image/*,*/*;q=0.8"
-    }
-
-    # try:
-
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 \
-        Safari/537.36"
-        , "Connection": "keep-alive"
-        , "Referer": now_image_src
-    }
-
-    file = download_dir + '/' + file_name + '.jpg'
-
-    if os.access(file, os.F_OK):
-        print(file_name + '.jpg 已存在')
-    else:
-        req = urllib.request.Request(now_image_src, headers=headers)
-        urlhtml = urllib.request.urlopen(req)
-        respHtml = urlhtml.read()
-
-        binfile = open(file, "wb")
-        binfile.write(respHtml);
-        binfile.close();
-        print(file + ' | success')
 
 
-def getInfo(driver,source_data) :
+def getImage(now_image_src, download_dir, file_name='111'):
 
+    download_url = file_name
+
+    i = 0
+    for image_url in now_image_src :
+        file_name = file_name + '_' + str(i)
+
+        header = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 \
+            Safari/537.36"
+            , "Connection": "keep-alive"
+            , "Referer": "image / webp, image / *, * / *;q = 0.8"
+            , "Accept": "image/webp,image/*,*/*;q=0.8"
+        }
+
+        # try:
+
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 \
+            Safari/537.36"
+            , "Connection": "keep-alive"
+            , "Referer": image_url
+        }
+
+        file = download_dir + '/' + file_name + '.jpg'
+
+        if os.access(file, os.F_OK):
+            print(file_name + '.jpg 已存在')
+        else:
+            req = urllib.request.Request(image_url, headers=headers)
+            urlhtml = urllib.request.urlopen(req)
+            respHtml = urlhtml.read()
+
+            binfile = open(file, "wb")
+            binfile.write(respHtml);
+            binfile.close();
+            print(file + ' | success')
+            random_wait = random.randint(2, 6)
+            time.sleep(random_wait)
+            print('等待 '+str(random_wait))
+
+        global tag
+        fw = open("inscheck_txt/"+tag+".txt", mode='w')
+        fw.write(download_url )
+        print("完成连接：/p/" + download_url+'/')
+        fw.close()
+
+
+
+def getInfo(driver):
+    time.sleep(6)
+    source_data = driver.page_source
     htmlXml = html.fromstring(source_data)
 
-    images_info = htmlXml.xpath('//div[@class="KL4Bh"]/img/@src')
+    images_info = htmlXml.xpath('//div[@class="ZyFrc"]//img/@src')
 
-    time.sleep(2)
+    current_url_name = driver.current_url.split('/')[4]
 
-    # 检测有没有下一页的按钮
-    check_next_image = driver.find_element_by_class_name(By.XPATH,'//button[@class="_6CZji"]')
+    print(images_info)
 
-    print(check_next_image)
+    global save_path
 
-    if len(images_info) == 0 :
-        #翻到下一个动态
-        print('翻到下一个动态')
+    print('开始下载....')
 
-    time.sleep(2)
+    getImage(images_info,save_path,current_url_name)
 
+    if checkIsExist(driver, 'coreSpriteRightPaginationArrow'):
+        rollNextInfo(driver)
+    else:
+        print('没有更多了')
+        return
 
+"""
+翻到下一个动态
+"""
+def rollNextInfo(driver) :
+    print('下一个动态')
+    driver.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
+    time.sleep(3)
 
-
-    click_new_image = driver.find_element_by_class_name('_6CZji')
-    click_new_image.click()  # 模拟点击,可以模拟点击加载更多
-
-
-    # if click_new_image > 0 :
-    #     print('下载图片，下载完成后 翻到下一页')
-    # else :
-    #     #翻到下一个动态
-    #     print('翻到下一个动态')
-
-
+    getInfo(driver)
 
 
 
+"""
+翻到下一个图片 
+"""
+def rollNextImage(driver) :
+
+    driver.find_element_by_class_name('coreSpriteRightChevron').click()
+
+    time.sleep(3)
+
+    getImage('2', '111')
+
+    print(checkIsExist(driver,'coreSpriteRightChevron'))
+
+    if checkIsExist(driver,'coreSpriteRightPaginationArrow'):
+        rollNextInfo(driver)
+    else:
+        print('没有更多了')
+        return
 
 
+"""
+检测元素是否存在
+"""
+def checkIsExist(driver,class_name) :
+    return_bool = 'false'
+    try:
+        if driver.find_element_by_class_name(class_name) :
+            return_bool = 1
 
+    except NoSuchElementException :
+        return_bool = 0
+
+    return return_bool
+
+
+"""
+下翻到历史下载的页数
+"""
+def rollHistory(driver,href_url) :
+
+    print('去到上一次停止的地方:'+href_url)
+
+    href_url = '/p/'+href_url+'/'
+
+    is_stop = 0
+    i= 1
+
+    while is_stop == 0:
+        print('第'+str(i) + '次滚动')
+        js = "var q=document.documentElement.scrollTop=100000"
+        driver.execute_script(js)
+        time.sleep(3)
+        i += 1
+
+        try:
+            if driver.find_element_by_xpath('//a[@href="'+href_url+'"]'):
+                is_stop = 1
+                driver.find_element_by_xpath('//a[@href="' + href_url + '"]').click()
+        except NoSuchElementException:
+            is_stop = 0
+            continue
+
+        return
 
 
 if __name__ == '__main__':
+    # tag = input('请输入需要搜索的关键字:')
+
+    ins_url = 'https://www.instagram.com/'+tag+'/'
+
     save_path = mkdir(tag)
 
     # 1. 创建浏览器对象
     driver = webdriver.Chrome(executable_path="C:\Program Files (x86)\Google\Chrome\Application\chromedriver")
 
     # 2. 发送请求
-    driver.get('https://www.instagram.com/explore/tags/' + tag + '/')
+    driver.get(ins_url)
 
     # 3. 等待10秒时间
     wait = WebDriverWait(driver, 10)
 
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'KL4Bh')))
 
-    class_click = driver.find_element_by_class_name('eLAPa')
-    print(class_click)
-    class_click.click()  # 模拟点击,可以模拟点击加载更多
-    data = driver.page_source
+    list_history = []
 
-    getInfo(driver,data)
+    if os.path.exists("inscheck_txt/"+tag+".txt") :
+        f = open("inscheck_txt/"+tag+".txt", mode='r')
+        list_history = f.readlines()
+    else :
+        f = open("inscheck_txt/" + tag + ".txt", mode='w')
 
-    # 4. 获取页面
-    print('正在获取页面信息....')
-    htmlfile = open('ins.html', 'w')
-    htmlfile.write(str(data.encode('UTF-8')))
-    htmlfile.close()
+    f.close()
 
-    htmlXml = html.fromstring(data)
+    if len(list_history)>0:
+        #获取历史记录，并且去到上次下载的地方
+        rollHistory(driver,list_history[0])
+    else:
+        class_click = driver.find_element_by_class_name('eLAPa')
+        class_click.click()  # 模拟点击,可以模拟点击加载更多
 
+    getInfo(driver)
 
     print('抓取结束')
     # 关闭浏览器
-    #driver.quit()
+    # driver.quit()
