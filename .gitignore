@@ -3,3 +3,5 @@
 images/
 venv/*
 check.txt
+*.jpg
+*.jpeg
