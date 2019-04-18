@@ -125,7 +125,7 @@ if __name__ == '__main__':
     print('正在获取页面信息....')
     data = driver.page_source
 
-    htmlfile = open('ins.html', 'w')
+    htmlfile = open('', 'w')
     htmlfile.write(str(data.encode('UTF-8')))
     htmlfile.close()
 

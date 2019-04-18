@@ -21,7 +21,7 @@ save_path = 'instagram'
 
 global tag
 
-tag = 'yejunghwa'
+tag = 'ogurayuka_official'
 
 
 
@@ -131,7 +131,7 @@ def getInfo(driver):
 def rollNextInfo(driver) :
     print('下一个动态')
     driver.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
-    time.sleep(3)
+    time.sleep(5)
 
     getInfo(driver)
 
@@ -205,7 +205,9 @@ def rollHistory(driver,href_url) :
 if __name__ == '__main__':
     # tag = input('请输入需要搜索的关键字:')
 
-    ins_url = 'https://www.instagram.com/'+tag+'/'
+    #ins_url = 'https://www.instagram.com/'+tag+'/'
+
+    ins_url = 'https://www.instagram.com/ogurayuka_official/'
 
     save_path = mkdir(tag)
 
@@ -240,5 +242,5 @@ if __name__ == '__main__':
     getInfo(driver)
 
     print('抓取结束')
-    # 关闭浏览器
-    # driver.quit()
+    #关闭浏览器
+    driver.quit()
